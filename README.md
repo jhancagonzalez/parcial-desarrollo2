@@ -6,4 +6,5 @@ Repositorio: https://github.com/jhancagonzalez/parcial-desarollo2
 
 ## Integrantes
 
-- Pendiente por completar
+-Jhancarlos González
+-Emanuel Giraldo

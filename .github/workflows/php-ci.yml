@@ -1,3 +1,14 @@
+# PHP Continuous Integration
+# Pipeline de Integración Continua para el proyecto Calculadora.
+#
+# Se ejecuta automáticamente en cada push o pull request
+# hacia las ramas 'main' y 'desarrollo'.
+# Configura PHP 8.2, instala dependencias con Composer
+# y corre la suite completa de pruebas con PHPUnit.
+#
+# Parcial 2 - Desarrollo de Software II | Universidad del Valle
+# Integrantes: Jhanca González, Emanuel Giraldo
+
 name: PHP Continuous Integration
 
 on:
@@ -11,17 +22,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Paso 1: Descarga el código fuente del repositorio
       - name: Descargar Codigo del Repositorio
         uses: actions/checkout@v3
 
+      # Paso 2: Instala y configura PHP 8.2 con las extensiones necesarias
       - name: Configurar Entorno PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
           extensions: mbstring, xml
 
+      # Paso 3: Instala las dependencias definidas en composer.json (PHPUnit)
       - name: Instalar Dependencias de Composer
-        run: composer install --no-progress --pref-dist
+        run: composer install --no-progress --prefer-dist
 
+      # Paso 4: Ejecuta todas las pruebas unitarias ubicadas en /tests
       - name: Ejecutar Pruebas Unitarias PHPUnit
         run: ./vendor/bin/phpunit tests
