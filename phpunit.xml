@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    phpunit.xml
+    Archivo de configuración formal para PHPUnit.
+
+    Define dónde están las pruebas, qué código cubrir
+    y el nivel de reporte de errores esperado.
+
+    Parcial 2 - Desarrollo de Software II | Universidad del Valle
+    Integrantes: Jhancarlos González, Emanuel Giraldo
+-->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         stopOnFailure="false">
+
+    <!-- Directorio donde se encuentran las pruebas unitarias -->
+    <testsuites>
+        <testsuite name="Calculadora Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Código fuente que se analiza para cobertura de pruebas -->
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </source>
+
+</phpunit>
